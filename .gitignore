@@ -1,0 +1,7 @@
+node_modules
+js_scripts
+angular2-unit-tests
+app/ahp/practice
+app/**/*.js
+app/**/*.map
+npm-debug.log.*

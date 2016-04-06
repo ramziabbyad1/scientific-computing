@@ -1,0 +1,70 @@
+<h2>Introduction</h2>
+<p>
+	There are many free resources online about the Analytic Hierarchy Process.  
+	It is a simple, but powerful organizational tool for multi-criteria comparison analysis.
+	In this introduction I will explain the basics of AHP, and crank out an example use case.
+	If you create a user account, you'll be able to create and save your own AHP models.
+</p>
+<h3>Making Decisions</h3>
+<p>
+	In our postmodern capitalist world, decisions control our lives.  Haven't you ever walked
+	into a grocery store looking for a jar of, say, peanut-butter, and been baffled by the sheer
+	number of choices available?  Or perhaps you're in a relationship and you can't decide whether
+	or not to get married.
+</p>
+<p>
+	If you were to confront these decisions as a scientist, how would you go about doing that?
+	One common technique is to make a pro-con (cost/benefit) list.  The items on this list
+	represent the <em>criteria</em> upon which your decision depends.  Let's run with the 
+	marriage example I just mentioned: 
+</p>
+<h4>Marriage Example</h4>
+<table>
+	<tr><th>Pros</th><th>Cons</th></tr>
+	<tr><td>Tax Benefits</td><td>Wedding Ring expense</td></tr>
+	<tr><td>Children</td><td>Less free time</td></tr>
+	<tr><td>Stability</td><td>Commitment</td></tr>
+</table>
+<p>
+	I arranged the previous example to illustrate a point.  Each row represents a criterium.
+	The first row represents expense.  The second, use of personal time.  The third, points to
+	issues involving monogamy.
+</p>
+<p>
+	How could we use this table to make an educated decision?  If all of the criteria are equally
+	important, then all we have to do is decide which item is most important on each row, 
+	the pro or the con?  Then we just tally them up an make out decision:
+</p>
+<h4>Marriage Table with Comparisons</h4>
+<table>
+	<tr><th>Pros</th><th></th><th>Cons</th></tr>
+	<tr><td>Criterium A</td><td>Tax Benefits</td><td><em>&lt;</em></td><td>Wedding Ring expense</td></tr>
+	<tr><td>Criterium B</td><td>Children</td><em>&gt;</em><td>Less free time</td></tr>
+	<tr><td>Criterium C</td><td>Stability</td><em>&gt;</em><td>Commitment</td></tr>
+	<tr><td>Count</td><td>2</td><td></td><td>1</td></tr>
+</table>
+<em>RESULT: Get Married!</em>
+<p>
+	But what about when A, B, and C differ in imortance?  And what if for some of thesewe want to consider sub-criteria? We need a way to organize and compare these criteria.
+	Hence the hierarchy in AHP.  Consider the following hierarchy:
+</p>
+<sample-hierarchy 
+	[hierarchyData]="simpleHierarchyData"
+	(formReady) = "repaint($event)"
+></sample-hierarchy>
+<p>
+	This is a hierarchy with only one level.  Note that there is a subjective aspect to the AHP process.  Your prioritization scheme depends on how you organize your hierarchy.  However, as long as you include the same criteria in your hierarchy, the only difference between the possible hiearchies you can generate is how you choose to compare the criteria.
+</p>
+<p>
+	Continuing to add detail to our marriage hiearchy:
+</p>
+<sample-hierarchy 
+	[hierarchyData]="detailedHierarchyData"
+	(formReady) = "repaint($event)"
+></sample-hierarchy>
+<p>As you can see, we added another level.</p>
+<h3>Comparing Criteria</h3>
+<p>
+	The next step is to compare the criteria at each level of the hierarchy.  One commonly accepted approach is to compare the criteria in pairs.  Let's do this.
+</p>
+<pw-comparisons [groups]="comparisonGroups"></pw-comparisons>
